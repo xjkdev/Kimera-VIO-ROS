@@ -1,0 +1,38 @@
+# Only used by stereo depth from image_undistort for Euroc dataset
+# which does not provide camera_info topics...
+# Taken from https://github.com/ethz-asl/voxblox/blob/master/voxblox_ros/cfg/calibrations/euroc_camchain.yaml
+# This configuration file is read by dense_stereo reconstruction node: https://github.com/ethz-asl/image_undistort
+# inside kimera_vio_ros_euroc.launch
+cam0:
+  T_cam_imu:
+  - [0.0 , -1.0 , 0.0 , 0.05]
+  - [0.0, 0.0, -1.0, 0.0]
+  - [1.0,0.0,0.0,0.0]
+  - [0.0, 0.0, 0.0, 1.0]
+  cam_overlaps: [1]
+  camera_model: pinhole
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]
+  distortion_model: radtan
+  intrinsics: [415.69219381653056, 415.69219381653056, 360.0, 240.0]
+  resolution: [720, 480]
+  rostopic: /cam0/image_raw
+  flip_camera: true
+cam1:
+  T_cam_imu:
+  - [0.0 , -1.0 , 0.0 , -0.05]
+  - [0.0, 0.0, -1.0, 0.0]
+  - [1.0,0.0,0.0,0.0]
+  - [0.0, 0.0, 0.0, 1.0]
+  T_cn_cnm1:
+  - [1.0, 0.0, 0.0, -0.1]
+  - [0.0, 1.0, 0.0, 0.0]
+  - [0.0, 0.0, 1.0, 0.0]
+  - [0.0, 0.0, 0.0, 1.0]
+  cam_overlaps: [0]
+  camera_model: pinhole
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0]
+  distortion_model: radtan
+  intrinsics: [415.69219381653056, 415.69219381653056, 360.0, 240.0]
+  resolution: [720, 480]
+  rostopic: /cam1/image_raw
+  flip_camera: true
