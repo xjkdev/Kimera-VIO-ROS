@@ -34,6 +34,14 @@
   <arg name="run_stereo_dense"     default="false"/>
   <group ns="stereo_gray" if="$(arg run_stereo_dense)">
     <!-- StereoSGBM -->
+    <node name="image_undistort" pkg="image_undistort" type="image_undistort">
+      <param name="input_camera_info_from_ros_params" value="false"/>
+
+      <remap from='input/image' to='/tesse/seg_cam/rgb/image_raw' />
+      <remap from='input/camera_info' to='/tesse/seg_cam/camera_info' />
+      <remap from='output/image' to='/image_undistort/semantic/image' />
+      <remap from='output/camera_info' to='/image_undistort/semantic/camera_info' />
+    </node>
     <node name="dense_stereo_semantic" pkg="image_undistort" type="dense_stereo_semantic_node" >
       <param name="input_camera_info_from_ros_params" value="true"/>
       <param name="first_camera_namespace"  value="cam0"/>
@@ -55,7 +63,7 @@
       <remap from="raw/second/image"        to="/cam1/image_raw"/>
       <remap from="raw/first/camera_info"   to="/cam0/camera_info"/>
       <remap from="raw/second/camera_info"  to="/cam1/camera_info"/>
-      <remap from="rect/semantic/image"      to="/tesse/seg_cam/rgb/image_raw"/>
+      <remap from="rect/semantic/image"      to="/image_undistort/semantic/image"/>
     </node>
   </group>
 
