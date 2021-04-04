@@ -45,12 +45,12 @@
     # Last tested commit: d48028de5b27a3cf51bd1cd538e4c54ac568154d
 - git:
     local-name: Kimera-VIO
-    uri: https://github.com/MIT-SPARK/Kimera-VIO.git
+    uri: https://github.com/xjkdev/Kimera-VIO.git
     version: master
     # Last tested commit: 2efbc572940dd56b8c6caf6d159cd7afd390d28e
 - git:
     local-name: Kimera-VIO-ROS
-    uri: https://github.com/MIT-SPARK/Kimera-VIO-ROS.git
+    uri: https://github.com/xjkdev/Kimera-VIO-ROS.git
     version: master
 - git:
     local-name: glog_catkin
@@ -66,5 +66,5 @@
     version: master
 - git:
     local-name: image_undistort
-    uri: https://github.com/ethz-asl/image_undistort.git
+    uri: https://github.com/xjkdev/image_undistort.git
     version: master
